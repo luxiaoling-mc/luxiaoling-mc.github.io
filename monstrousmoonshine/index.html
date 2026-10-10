@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在交互证明树、月光模、魔群、魔群李代数和主模函数探索中理解魔群月光，并查阅记号与文献。">
+  <title>魔群月光｜交互证明树 v3</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="v2.css?v=17">
+  <link rel="stylesheet" href="workshop-sources.css?v=2">
+  <link rel="stylesheet" href="construction-trails.css?v=1">
+  <link rel="stylesheet" href="monster-lab.css?v=3">
+  <link rel="stylesheet" href="moonshine-lab.css?v=4">
+  <link rel="stylesheet" href="root-lab.css?v=7">
+  <link rel="stylesheet" href="haupt-lab.css?v=1">
+  <link rel="stylesheet" href="haupt-catalog.css?v=2">
+  <script src="math-notation.js?v=12" defer></script>
+  <script src="assets/mathjax/tex-svg.js" defer></script>
+  <script src="monster-data.js?v=1" defer></script>
+  <script src="haupt-catalog-data.js?v=2" defer></script>
+  <script src="root-series.js?v=1" defer></script>
+  <script src="app.js?v=14" defer></script>
+  <script src="graph-details.js?v=10" defer></script>
+  <script src="graph-content-extended.js?v=12" defer></script>
+  <script src="graph-concepts.js?v=5" defer></script>
+  <script src="graph-symmetry-details.js?v=1" defer></script>
+  <script src="graph-inline-math.js?v=6" defer></script>
+  <script src="graph.js?v=14" defer></script>
+  <script src="tabs.js?v=4" defer></script>
+  <script src="monster-lab.js?v=5" defer></script>
+  <script src="moonshine-lab.js?v=5" defer></script>
+  <script src="haupt-lab.js?v=1" defer></script>
+  <script src="haupt-catalog.js?v=4" defer></script>
+</head>
+<body class="v2-app">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="app-header">
+    <div class="app-identity" aria-label="魔群月光，交互证明树第三版"><span class="identity-mark">𝕄</span><span class="identity-text"><strong>魔群月光</strong><small>MONSTROUS MOONSHINE <em>V3</em></small></span></div>
+    <nav class="app-tabs" role="tablist" aria-label="页面视图">
+      <button type="button" role="tab" id="tab-tree" aria-controls="tree-panel" aria-selected="true" tabindex="0" data-tab="tree"><span class="tab-index">01</span> 证明树</button>
+      <button type="button" role="tab" id="tab-module" aria-controls="module-panel" aria-selected="false" tabindex="-1" data-tab="module"><span class="tab-index">02</span> 月光模探索</button>
+      <button type="button" role="tab" id="tab-monster" aria-controls="monster-panel" aria-selected="false" tabindex="-1" data-tab="monster"><span class="tab-index">03</span> 魔群探索</button>
+      <button type="button" role="tab" id="tab-roots" aria-controls="roots-panel" aria-selected="false" tabindex="-1" data-tab="roots"><span class="tab-index">04</span> 魔群李代数探索</button>
+      <button type="button" role="tab" id="tab-haupt" aria-controls="haupt-panel" aria-selected="false" tabindex="-1" data-tab="haupt"><span class="tab-index">05</span> 主模函数探索</button>
+      <button type="button" role="tab" id="tab-sources" aria-controls="sources-panel" aria-selected="false" tabindex="-1" data-tab="sources"><span class="tab-index">06</span> 记号与文献</button>
+    </nav>
+    <span class="header-signature">24 → 26 → genus zero</span>
+  </header>
+  <main id="main" class="app-main">
+    <section class="tab-panel tree-panel is-active" id="tree-panel" role="tabpanel" aria-labelledby="tab-tree" data-panel="tree">
+      <div class="graph-workspace" id="graph-workspace">
+        <div class="graph-toolbar" aria-label="证明树控制">
+          <div class="graph-heading"><span class="graph-heading-mark" aria-hidden="true">↘ ↓ ↙</span><div><strong>证明依赖图</strong><small>从构造走向魔群月光的证明</small></div></div>
+          <div class="graph-focus" aria-label="聚焦路径"><span>聚焦</span><button type="button" data-graph-focus="all" aria-pressed="true">全图</button><button type="button" data-graph-focus="vnatural">月光模</button><button type="button" data-graph-focus="monster">魔群</button><button type="button" data-graph-focus="lie">李代数</button><button type="button" data-graph-focus="haupt">主模函数</button></div>
+          <div class="graph-tools"><button type="button" id="graph-jump">前往结论 ↓</button><span class="graph-toolbar-divider"></span><button type="button" id="graph-zoom-out" aria-label="缩小证明树">−</button><output id="graph-zoom" aria-label="缩放比例">100%</output><button type="button" id="graph-zoom-in" aria-label="放大证明树">+</button><button type="button" id="graph-fit">适配全图</button><button type="button" id="graph-fullscreen" aria-label="全屏显示证明树" aria-pressed="false">⛶ 全屏</button></div>
+        </div>
+        <div class="graph-shell">
+          <div class="graph-view" id="graph-view" tabindex="0" aria-label="魔群月光证明树：滚轮缩放，按住空白处拖动位置，点击节点查看详情">
+            <div class="graph-stage-space" id="graph-stage-space"><div class="graph-stage" id="graph-stage"><svg class="graph-edges" id="graph-edges" viewBox="0 0 1010 2150" aria-hidden="true"></svg><div id="graph-nodes"></div></div></div>
+            <div class="graph-canvas-hint" aria-hidden="true"><span>滚轮缩放</span><span>按住空白处拖动</span><span>点击节点查看证明</span></div>
+            <div class="graph-legend" aria-hidden="true"><span><i class="key-construct"></i>构造</span><span><i class="key-group"></i>魔群</span><span><i class="key-lie"></i>李代数</span><span><i class="key-modular"></i>主模函数</span><span><i class="key-concept"></i>虚线·概念</span></div>
+          </div>
+          <aside class="graph-inspector" id="graph-inspector" aria-live="polite" aria-label="选中节点的数学说明"></aside>
+          <div class="inspector-resize-handle" id="inspector-resize-handle" role="separator" aria-orientation="vertical" aria-label="拖动调整详情卡片宽度和高度；双击恢复默认尺寸" title="拖动调整卡片宽高 · 双击恢复默认" tabindex="0" hidden></div>
+        </div>
+      </div>
+    </section>
+    <section class="tab-panel content-panel module-panel" id="module-panel" role="tabpanel" aria-labelledby="tab-module" data-panel="module" hidden>
+      <div class="tab-scroll"><div class="tab-content module-content">
+        <div class="module-heading"><div><p class="eyebrow">02 / THE GRADED MOONSHINE MODULE</p><h1>月光模探索</h1><p>沿着共形权重逐层观察 <i>V</i><sup>♮</sup>。每层由两个轨道扇区组成；维数之和写出 <i>J</i> 的系数，中心对合的迹则写出 <i>T</i><sub>2B</sub>。</p></div><div class="module-heading-sign" aria-hidden="true"><span>V<sup>♮</sup></span><small>c = 24</small></div></div>
+        <div class="module-equation module-equation-desktop">\[V^\natural=V_\Lambda^+\oplus (V_\Lambda^T)^+,\qquad \operatorname{ch}V^\natural=J(\tau)=j(\tau)-744.\]</div><div class="module-equation module-equation-mobile">\[V^\natural=V_\Lambda^+\oplus (V_\Lambda^T)^+\]\[\operatorname{ch}V^\natural=J(\tau)=j(\tau)-744\]</div>
+        <div class="module-lab-layout"><div class="module-layers-panel"><div class="module-section-head"><div><span class="eyebrow">WEIGHT SPECTRUM</span><h2>选择一个共形权层</h2></div><small>权重 <i>k</i> ↔ <i>q</i><sup>k−1</sup></small></div><div class="module-layer-scale" aria-hidden="true"><span>真空</span><span>两扇区开始汇合</span><span>更高分次</span></div><div class="module-layers" id="module-layers" role="listbox" aria-label="月光模的共形权层"></div></div><article class="module-readout" id="module-readout" aria-live="polite"></article></div>
+        <section class="construction-trail" id="module-construction" data-construction="moonshine" aria-label="月光模构造路径"></section>
+        <div class="module-formulas"><article><span>01 / 格 VOA</span><h3>从 Leech 格得到配分函数</h3><div class="module-formula">\[\chi_{V_\Lambda}(q)=q^{-1}\Theta_\Lambda(q)\prod_{m\ge1}(1-q^m)^{-24}=j(q)-720.\]</div><p>格向量给出 Θ<sub>Λ</sub>，24 个整数模振子给出无限乘积。常数项 24 正是权 1 振子。</p></article><article><span>02 / 未扭曲投影</span><h3>保留格反演的不变态</h3><div class="module-formula">\[\chi_\theta(q)=q^{-1}\prod_{m\ge1}(1+q^m)^{-24},\qquad \chi^+=\frac{\chi_{V_\Lambda}+\chi_\theta}{2}.\]</div><p>对合 θ 的迹与普通维数一加一除以二，逐权重筛出 θ 不变部分；权 1 的 24 与 −24 抵消。</p></article><article><span>03 / 扭曲补全</span><h3>半整数振子重新填回</h3><div class="module-formula">\[\chi^{T,+}=2^{12}q^{1/2}\frac{F(t)-F(-t)}{2},\quad F(t)=\prod_{r\ge0}(1-t^{2r+1})^{-24},\ t=q^{1/2}.\]</div><p>扭曲基态有 2<sup>12</sup> 个方向；奇数个半整数振子产生整数权重的不变态。最低非零层是权 2。</p></article></div>
+        <div class="module-lower"><section class="module-table-section"><div class="module-section-head"><div><span class="eyebrow">SECTOR LEDGER</span><h2>逐系数核对</h2></div><small>前 12 个正幂项 · 已核对 1A / 2B</small></div><div class="module-table-wrap"><table class="module-table" id="module-table"><thead><tr><th>权重 <i>k</i></th><th>未扭曲 χ<sup>+</sup></th><th>扭曲 χ<sup>T,+</sup></th><th>和 = dim <i>V</i><sup>♮</sup><sub>k</sub></th><th>差 = <i>T</i><sub>2B</sub></th></tr></thead><tbody></tbody></table></div></section><section class="module-representation"><div class="module-section-head"><div><span class="eyebrow">MONSTER REPRESENTATIONS</span><h2>维数怎样成为表示</h2></div></div><div class="module-representation-list" id="module-representation-list"></div><p class="module-note">χ<sub>i</sub> 是按维数排序的魔群不可约特征标。权重 2、3、4、6 的表示分解见 Borcherds §3(3)；权重 5 只展示一个数值等式，因为仅凭维数无法确定真正的表示分解。</p></section></div>
+        <nav class="module-bridge" aria-label="相关探索"><button type="button" data-construction-jump="moonshine"><span>构造路径</span><strong>追溯两个扇区 ↗</strong></button><button type="button" data-go-tab="monster"><span>03 / 魔群探索</span><strong>比较共轭类迹 ↗</strong></button><button type="button" data-go-tab="roots"><span>04 / 李代数探索</span><strong>查看根空间 ↗</strong></button></nav>
+        <div class="module-sources">数学依据：<a href="https://math.berkeley.edu/~reb/papers/monster/monster.pdf" target="_blank" rel="noopener">Borcherds, <i>Monstrous moonshine and monstrous Lie superalgebras</i> (1992)</a>，§3、§7–9；Frenkel–Lepowsky–Meurman, <i>Vertex Operator Algebras and the Monster</i> (1988)。</div>
+      </div></div>
+    </section>
+    <section class="tab-panel content-panel monster-panel" id="monster-panel" role="tabpanel" aria-labelledby="tab-monster" data-panel="monster" hidden>
+      <div class="tab-scroll"><div class="tab-content monster-content">
+        <div class="monster-hero">
+          <div><p class="eyebrow">03 / MONSTER CONJUGACY ATLAS</p><h1>魔群探索实验室</h1><p>每个共轭类给月光模一个不同的对称操作。选择类，观察它在逐层分次上留下的迹，并比较这些迹怎样汇成 McKay–Thompson 级数。</p></div>
+          <div class="monster-counts" aria-label="数据范围"><div><strong>194</strong><span>共轭类</span></div><div><strong>171</strong><span>不同级数</span></div><div><strong>73</strong><span>元素阶数</span></div></div>
+        </div>
+        <div class="monster-definition"><div class="monster-definition-desktop">\[T_g(\tau)=\operatorname{Tr}_{V^\natural}\!\left(gq^{L_0-1}\right)=q^{-1}+\sum_{n\ge1}\operatorname{Tr}\!\left(g\mid V^\natural_{n+1}\right)q^n,\qquad q=e^{2\pi i\tau}.\]</div><div class="monster-definition-mobile">\[T_g(\tau)=q^{-1}+\sum_{n\ge1}c_g(n)q^n\]\[c_g(n)=\operatorname{Tr}\!\left(g\mid V^\natural_{n+1}\right)\]</div><p>恒等类 1A 的迹就是每层的维数，得到 <i>J</i> = <i>j</i> − 744。别的类给出有正有负的迹；常数项均为 0，因为 <i>V</i><sup>♮</sup><sub>1</sub> = 0。详情中的公式省略零系数，精确值仍列在下方。</p></div>
+        <div class="monster-lab-layout">
+          <aside class="monster-browser" aria-label="共轭类浏览器">
+            <div class="monster-browser-header"><div><span class="eyebrow">CLASS INDEX</span><h2>选择一个对称类型</h2></div><output id="monster-match-count">194 / 194</output></div>
+            <label class="monster-search-label" for="monster-search">查找类名、阶数或月光群符号</label><input id="monster-search" type="search" autocomplete="off" placeholder="例如 2A、23、24|2+…">
+            <div class="monster-filters" role="group" aria-label="按首层迹筛选共轭类"><button type="button" data-monster-filter="all" aria-pressed="true">全部</button><button type="button" data-monster-filter="positive" aria-pressed="false">q¹ &gt; 0</button><button type="button" data-monster-filter="nonpositive" aria-pressed="false">q¹ ≤ 0</button></div>
+            <div class="monster-class-list" id="monster-class-list" role="listbox" aria-label="194 个魔群共轭类"></div>
+          </aside>
+          <div class="monster-analysis">
+            <article class="monster-detail" id="monster-detail" aria-live="polite"></article>
+            <article class="monster-compare"><div class="monster-section-head"><div><span class="eyebrow">COMPARE</span><h2>把两个类放在同一层</h2></div><label>对照类 <select id="monster-compare-select" aria-label="选择对照共轭类"></select></label></div><div id="monster-compare-body"></div></article>
+          </div>
+        </div>
+        <section class="construction-trail" id="monster-construction" data-construction="monster" aria-label="魔群构造路径"></section>
+        <div class="monster-explainer"><article><span>01 / CLASS</span><h3>类名中的数字与字母</h3><p>2A 与 2B 都是 2 阶元素，但不在同一个共轭类。字母区分同阶的不同类；其迹级数也可能不同。</p></article><article><span>02 / COINCIDENCE</span><h3>不同类可以共享级数</h3><p>194 个共轭类只给出 171 条不同的级数。共享同一月光群标记的类在这个目录中并列呈现。</p></article></div>
+        <details class="monster-history"><summary>历史线索 / Ogg 的 15 个素数</summary><div><p>Ogg 发现，使 Fricke 商曲线 \(X_0(p)^+=X_0(p)/\langle w_p\rangle\) 亏格为零的素数，恰好是魔群阶的全部素因子：</p><p class="monster-primes">2 · 3 · 5 · 7 · 11 · 13 · 17 · 19 · 23 · 29 · 31 · 41 · 47 · 59 · 71</p><p>这是月光现象的历史线索；证明树的递推链不以这一巧合为前提。<a href="https://celebratio.org/Ogg_AP/article/1157/" target="_blank" rel="noopener">Ogg 定理与历史说明 ↗</a></p></div></details>
+        <div class="monster-sources"><h2>数据、记号与核对</h2><p>类名、阶数及月光群符号采用 Conway–Norton / ATLAS 的惯例。<i>N</i>+、<i>N</i>−、<i>N</i>|<i>h</i> 等是月光群的名称缩写，其中 + / − 不表示系数正负。系数来自 <a href="https://oeis.org/wiki/Index_to_OEIS:_Section_Mat#McKay_Thompson" target="_blank" rel="noopener">OEIS 的 McKay–Thompson 索引</a>与相应序列；每张详情卡可直达该序列。部分 OEIS 条目记录的是经变量替换压缩的级数，本页依其例式恢复中间的零系数；带非零常数项的条目则按月光模定义归一化为 0。对应关系另参考 <a href="https://arxiv.org/abs/1804.04127" target="_blank" rel="noopener">Le Bruyn 的 moonshine picture</a> 与 <a href="https://uni.mino.mobi/monster" target="_blank" rel="noopener">194 类对照表</a>。171 条不同级数的计数见 <a href="https://arxiv.org/abs/1712.10160" target="_blank" rel="noopener">Carnahan–Komuro–Urano</a>。OEIS 数据依其 <a href="https://oeis.org/LICENSE" target="_blank" rel="noopener">使用条款</a>标注来源。</p></div>
+      </div></div>
+    </section>
+    <section class="tab-panel content-panel" id="roots-panel" role="tabpanel" aria-labelledby="tab-roots" data-panel="roots" hidden>
+      <div class="tab-scroll"><div class="tab-content">
+        <div class="page-heading"><p class="eyebrow">04 / THE MONSTER LIE ALGEBRA</p><h1>魔群李代数探索</h1><p>根空间是魔群李代数 𝔪 的分次片。点选 II<sub>1,1</sub> ≅ ℤ² 中的整数对 (m,n)，看无鬼定理如何把它接回月光模。</p></div>
+        <div class="lie-overview"><div><small>INPUT</small><strong>月光模 <i>V</i><sup>♮</sup></strong><span>中心荷 24</span></div><b>⊗</b><div><small>STRING EXTENSION</small><strong><i>V</i><sub>II₁,₁</sub></strong><span>中心荷 2</span></div><b>→</b><div><small>PHYSICAL STATES</small><strong>魔群李代数 𝔪</strong><span>根格 II<sub>1,1</sub></span></div></div>
+        <div class="lie-equation lie-equation-desktop">\[\mathfrak m_{(m,n)}\cong V^\natural_{mn+1},\qquad \dim\mathfrak m_{(m,n)}=c(mn),\qquad (m,n)\ne(0,0).\]</div><div class="lie-equation lie-equation-mobile">\[\mathfrak m_{(m,n)}\cong V^\natural_{mn+1}\]\[\dim\mathfrak m_{(m,n)}=c(mn)\]</div>
+        <div class="root-layout"><div class="root-grid-panel"><div class="root-grid-toolbar"><div><span class="eyebrow">ROOT WINDOW</span><h2>选择观察范围</h2><output id="root-window-label">1 ≤ m ≤ 8 · −1 ≤ n ≤ 8</output></div><div class="root-range-buttons" role="group" aria-label="根空间观察范围"><button type="button" data-root-range="4" aria-pressed="false">4 × 4</button><button type="button" data-root-range="8" aria-pressed="true">8 × 8</button><button type="button" data-root-range="12" aria-pressed="false">12 × 12</button></div></div><div class="grid-caption"><span>n ↑</span><span>m →　横向滚动查看更多列</span></div><div class="root-grid-feedback"><output id="root-selection-summary" aria-live="polite"></output><button type="button" id="root-detail-jump">查看完整值 ↓</button></div><div class="root-grid-viewport" tabindex="0" aria-label="根空间表，横向滚动查看更多列"><div class="root-grid" id="root-grid" role="grid" aria-label="魔群李代数根空间表"></div></div><p class="grid-footnote">灰色是零空间，金色边框是单根；点选格子可查看完整整数。数字的来源见下方“根重数的计算链”。</p></div><article class="root-readout" id="root-readout" aria-live="polite" tabindex="-1"></article></div>
+        <section class="construction-trail" id="lie-construction" data-construction="lie" aria-label="魔群李代数构造路径"></section>
+        <section class="root-derivation" aria-labelledby="root-derivation-title"><div class="root-derivation-heading"><div><span class="eyebrow">WHERE THE NUMBERS COME FROM</span><h2 id="root-derivation-title">根重数的计算链</h2></div></div><div class="root-derivation-grid"><article><span>01 / 坐标映射到系数</span><div class="root-derivation-formula">\[J(q)=q^{-1}+\sum_{k\ge1}c(k)q^k\]</div><p>坐标 (m,n) 对应 k = mn；在级数中取 q<sup>k</sup> 的系数。原点不在这张根空间表里。</p></article><article><span>02 / 模形式给出系数</span><div class="root-derivation-formula">\[j(q)=\frac{E_4(q)^3}{\Delta(q)},\qquad J(q)=j(q)-744\]</div><p>其中 \(E_4=1+240\sum_{r\ge1}\sigma_3(r)q^r\)，\(\Delta=q\prod_{r\ge1}(1-q^r)^{24}\)，\(\sigma_s(r)=\sum_{d\mid r}d^s\)。</p></article><article><span>03 / 整数递推展开</span><div class="root-derivation-formula">\[P(q)=\prod_{r\ge1}(1-q^r)^{-24}=\sum_{r\ge0}a_rq^r\]</div><p>令 \(a_0=1\)，则 \(r a_r=24\sum_{s=1}^{r}\sigma_1(s)a_{r-s}\)。页面用整数运算求 <i>P</i>、<i>E</i><sub>4</sub><sup>3</sup>，再取 \(c(k)=[q^{k+1}]E_4^3P\)（<i>k</i> ≥ 1）。</p></article></div><div class="root-derivation-example"><div><span>WORKED EXAMPLE</span><h3>196,884 是怎样算出的？</h3><p>选 (1,1) 时 <i>mn</i> = 1；需要取 <i>E</i><sub>4</sub><sup>3</sup><i>P</i> 的 <i>q</i><sup>2</sup> 系数。</p></div><div class="root-derivation-example-math">\[E_4^3=1+720q+179280q^2+\cdots,\quad P=1+24q+324q^2+\cdots\]\[c(1)=179280+(720\times24)+324=196884.\]</div></div><p class="root-derivation-note">特殊项：<i>c</i>(−1)=1 对应唯一实单根 (1,−1)；<i>c</i>(0)=0 是减去 744 后的常数项；<i>c</i>(k)=0（<i>k</i>&lt;−1）。最大窗口使用到 <i>c</i>(144)。</p><p class="root-derivation-source">依据：<a href="https://math.berkeley.edu/~reb/papers/monster/monster.pdf" target="_blank" rel="noopener">Borcherds (1992)，§6–7</a> 给出李代数根空间与分母公式；<a href="https://www.its.caltech.edu/~matilde/Zagier123ModularForms.pdf" target="_blank" rel="noopener">Zagier 模形式讲义</a>给出经典的 <i>j</i> 展开。</p></section>
+        <div class="lie-logic"><article><span>01 / 单根配对</span><h3>第一列的双曲内积</h3><div class="lie-logic-formula">\[((1,r),(1,s))=-(r+s)\]</div><p>实单根 (1,−1) 的范数为 2；任意两条虚单根的内积为负。这组配对给出广义 Cartan 数据，也解释了它们不能两两正交。</p></article><article><span>02 / 单根</span><h3>金色第一列的意义</h3><p>选定正根方向后，(1,−1) 是唯一实单根；(1,n)、n &gt; 0 是虚单根，重数为 c(n)。因此第一列把月光模的整个分次信息送进了李代数的生成元。</p></article><article><span>03 / 分母公式</span><h3>根重数形成无穷乘积</h3><div class="lie-logic-formula">\[p^{-1}\prod_{m>0,\,n\in\mathbb Z}(1-p^mq^n)^{c(mn)}=J(p)-J(q).\]</div><p>左边按每个正根及其重数相乘，右边收束为两份 <i>J</i> 之差。把魔群元素作用插入根空间后，扭曲分母公式进一步约束各共轭类的迹级数。</p></article></div>
+        <section class="homology-section" id="homology-section" aria-labelledby="homology-title">
+          <div class="homology-heading"><div><span class="eyebrow">FROM ROOTS TO TRACES</span><h2 id="homology-title">𝔪 的同调</h2></div><p>分母乘积记录根的维数；正根子代数的同调保留每个根空间的魔群表示，从而允许逐元素取迹。</p></div>
+          <div class="homology-flow" aria-label="同调在证明链中的位置"><span>正根 E</span><b>→</b><span>外幂链复形</span><b>→</b><span>H₀、H₁、H₂</span><b>→</b><span>扭曲分母式</span></div>
+          <div class="homology-principle"><div class="homology-equation">\[\begin{aligned}E&=\bigoplus_{\substack{m>0\\n\in\mathbb Z}}\mathfrak m_{(m,n)}\\[-2pt]C_i(E)&=\bigwedge^i E,\qquad H_i(E)=\ker d_i/\operatorname{im}d_{i+1}\end{aligned}\]</div><p>微分从 Lie 括号出发，例如 \(d_2(x\wedge y)=[x,y]\)。下方的 \(V_n\) 指位移分次 \(V^\natural_{n+1}\)；\(p,q\) 分别记录根格的两个坐标。</p></div>
+          <div class="homology-grid">
+            <article><span>H₀ / 真空</span><div class="homology-card-math">\[H_0(E)=\mathbb R\]</div><p>零次链只留下平凡表示，分次特征标为 1。</p></article>
+            <article><span>H₁ / 单根</span><div class="homology-card-math">\[H_1(E)=E/[E,E]=\sum_{n\in\mathbb Z}V_n\,p q^n\]</div><p>一阶同调保留无法由正根括号生成的单根空间；其特征标是 \(pJ(q)\)。</p></article>
+            <article><span>H₂ / 两根外积</span><div class="homology-card-math">\[H_2(E)=\sum_{m>0}V_m\,p^{m+1}\]</div><p>度数 \((m+1,0)\) 来自实单根 \((1,-1)\) 与 \((m,1)\) 的外积。因为 \(c(0)=0\)，该度数的根空间为零；特征标为 \(pJ(p)-1\)。</p></article>
+            <article><span>H≥3 / 消失</span><div class="homology-card-math">\[H_i(E)=0\qquad(i\ge3)\]</div><p>唯一负 \(n\) 的正根是一维的 \((1,-1)\)；再添两条正 \(n\) 的根，已无法凑出同调允许的 \(n=0\) 度数。</p></article>
+          </div>
+          <div class="homology-result"><div><span>表示环中的 Euler–Poincaré 恒等式</span><p>\(\Lambda(E)=\sum_i(-1)^i\bigwedge^i E=\sum_i(-1)^iH_i(E)\)。这里 \(\Lambda(E)\) 表示外幂交错和，不是 Leech 格。</p></div><div class="homology-result-math">\[p^{-1}\Lambda(E)=\sum_{m\in\mathbb Z}V_m p^m-\sum_{n\in\mathbb Z}V_n q^n\]</div><p>这是 Borcherds 的式 (8.2)。取 \(g=1\) 得到维数乘积；对一般 \(g\) 取迹时，外幂的 Adams 运算引入 \(g^r\)，得到扭曲分母公式。</p><button type="button" data-go-tab="tree" data-go-node="homology">在证明树中查看同调节点 ↗</button></div>
+          <p class="homology-source">依据：<a href="https://math.berkeley.edu/~reb/papers/monster/monster.pdf" target="_blank" rel="noopener">Borcherds (1992)，§4、§8，式 (8.1)–(8.3)</a>。</p>
+        </section>
+        
+      </div></div>
+    </section>
+    <section class="tab-panel content-panel haupt-panel" id="haupt-panel" role="tabpanel" aria-labelledby="tab-haupt" data-panel="haupt" hidden>
+      <div class="tab-scroll"><div class="tab-content haupt-content">
+        <div class="haupt-hero">
+          <div class="haupt-hero-copy"><p class="eyebrow">05 / HAUPTMODUL & REPLICATION</p><h1>主模函数探索</h1><p>把一条月光级数拆成“规范化坐标”“Faber 多项式”“复制级数”和“四个种子”。改动种子，亲手看二次复制恒等式怎样推出后面的系数。</p></div>
+          <div class="haupt-hero-art" aria-hidden="true"><span class="haupt-orbit orbit-a"></span><span class="haupt-orbit orbit-b"></span><span class="haupt-orbit orbit-c"></span><i class="haupt-core">q<sup>−1</sup></i><b class="haupt-art-point point-a">a₁</b><b class="haupt-art-point point-b">a₂</b><b class="haupt-art-point point-c">a₃</b><b class="haupt-art-point point-d">a₅</b></div>
+        </div>
+        <div class="haupt-concept-row"><article><span>01 / GEOMETRY</span><h2>Hauptmodul 是什么</h2><p>模曲线亏格为零时，函数域可由一个坐标生成。取只在无穷远 cusp 有简单极点的坐标，并把常数项调为零，便得到可逐项比较的规范化级数。</p><div>\[f(\tau)=q^{-1}+O(q),\qquad q=e^{2\pi i\tau}\]</div></article><article><span>02 / ARITHMETIC</span><h2>完全可复制是什么</h2><p>级数满足每个正整数阶的复制公式，所有 replicate 自身继续满足同类公式，并按幂次相容。月光主模函数同时具备这两种结构；两个术语的定义并不相同。</p><div>\[P_m(f)=\sum_{ad=m}\sum_{0\le b\le d-1}f^{(a)}\!\left(\frac{a\tau+b}{d}\right)\]</div></article></div>
+        <section class="haupt-atlas" aria-labelledby="haupt-atlas-title">
+          <div class="haupt-section-head"><div><span class="eyebrow">THE COMPLETE INTEGER CATALOGUE</span><h2 id="haupt-atlas-title">328 条完全可复制函数</h2></div><p>171 条不同的魔群级数，对应 194 个共轭类；ACMS 另列 157 条，其中 154 条为非魔群主模函数，3 条是退化级数。</p></div>
+          <div class="haupt-atlas-stats" aria-label="目录构成"><div><strong>171</strong><span>魔群函数</span></div><div><strong>154</strong><span>非魔群 Hauptmodul</span></div><div><strong>03</strong><span>退化级数</span></div><div><strong>194</strong><span>魔群共轭类映射</span></div></div>
+          <div class="haupt-atlas-tools"><label class="haupt-atlas-search-label"><span>检索函数、群、魔群类</span><input id="haupt-atlas-search" type="search" placeholder="例如 2A、6d、Γ₀(18)、18B⁰" autocomplete="off"></label><div class="haupt-atlas-filters" role="group" aria-label="目录类型"><button type="button" data-haupt-filter="all" aria-pressed="true">全部</button><button type="button" data-haupt-filter="monster" aria-pressed="false">魔群</button><button type="button" data-haupt-filter="nonmonster" aria-pressed="false">非魔群</button><button type="button" data-haupt-filter="fiction" aria-pressed="false">退化</button></div></div>
+          <div class="haupt-atlas-layout"><div class="haupt-atlas-index"><div class="haupt-atlas-index-head"><span id="haupt-atlas-count">328 条</span><label>排序 <select id="haupt-atlas-sort"><option value="name">函数标签</option><option value="level">Γ₀ 级数</option></select></label></div><div id="haupt-atlas-list" class="haupt-atlas-list" role="listbox" aria-label="完全可复制函数目录"></div><div class="haupt-atlas-pager"><button type="button" id="haupt-atlas-prev" aria-label="上一页">← 上一页</button><span id="haupt-atlas-page"></span><button type="button" id="haupt-atlas-next" aria-label="下一页">下一页 →</button></div></div><article id="haupt-atlas-detail" class="haupt-atlas-detail" aria-live="polite"></article></div>
+          <p class="haupt-atlas-note">\(\Gamma_0(N)\) 是矩阵下左角可被 \(N\) 整除的标准同余子群。群标签采用 <a href="https://ftp.gwdg.de/pub/EMIS/journals/EM/expmath/volumes/13/13.3/cummins/cumminstables.pdf" target="_blank" rel="noopener">Cummins 附表 3</a> 的等价类代表记法；<a href="https://ftp.gwdg.de/pub/EMIS/journals/EM/expmath/volumes/13/13.3/Cummins.pdf" target="_blank" rel="noopener">原论文 §6.3</a> 提醒，代表元的最小级数未必适用于平移伙伴。魔群侧还按 <a href="https://uva.theopenscholar.com/files/ken-ono/files/151.pdf" target="_blank" rel="noopener">Duncan–Griffin–Ono 的 \(n|h\) 记法</a>取包含的 \(\Gamma_0(nh)\)。平移伙伴所列的级数可能不是最小值。非魔群条目的四个显示系数来自 <a href="https://oeis.org/A007242/a007242_1.pdf" target="_blank" rel="noopener">ACMS 表（92–95 页）</a>；未列出的幂次不表示零。</p>
+        </section>
+        <section class="haupt-workbench" aria-labelledby="haupt-workbench-title">
+          <div class="haupt-section-head"><div><span class="eyebrow">CHOOSE A FUNCTION</span><h2 id="haupt-workbench-title">选择一条可核对的月光级数</h2></div><p>这三个例子在本页的数据中都有明确的二次 replicate：1A 自身；2A 与 2B 的平方都落到 1A。</p></div>
+          <div class="haupt-class-switch" role="group" aria-label="选择复制实验示例"><button type="button" data-haupt-class="1A" aria-pressed="true">1A <small>J = j − 744</small></button><button type="button" data-haupt-class="2A" aria-pressed="false">2A <small>平方 → 1A</small></button><button type="button" data-haupt-class="2B" aria-pressed="false">2B <small>平方 → 1A</small></button></div>
+          <div class="haupt-ledger"><div class="haupt-ledger-head"><div><span>SELECTED SERIES</span><h3 id="haupt-series-title">T<sub>1A</sub></h3></div><div id="haupt-replicate-label"></div></div><div class="haupt-series-strip" id="haupt-series-strip" aria-label="级数系数位置"></div><p id="haupt-series-line" class="haupt-series-line"></p><p class="haupt-ledger-caption">金色位置是输入种子；青色位置由下面的复制恒等式演算。显示的完整整数来自现有魔群级数目录。</p></div>
+        </section>
+        <div class="haupt-engine-grid">
+          <section class="haupt-faber" aria-labelledby="haupt-faber-title"><div class="haupt-section-head"><div><span class="eyebrow">FABER ENGINE</span><h2 id="haupt-faber-title">消去主部</h2></div><div class="haupt-order-switch" role="group" aria-label="Faber 多项式阶数"><button type="button" data-faber-order="2" aria-pressed="true">P₂</button><button type="button" data-faber-order="3" aria-pressed="false">P₃</button></div></div><p>从 <i>f</i><sup>m</sup> 中减去低阶项，使负幂只剩 <i>q</i><sup>−m</sup>；页面按当前级数的整数系数实际计算多项式。</p><div class="haupt-faber-display" id="haupt-faber-display" aria-live="polite"></div><div class="haupt-cancel-grid" id="haupt-cancel-grid"></div></section>
+          <section class="haupt-mirror" aria-labelledby="haupt-mirror-title"><div class="haupt-section-head"><div><span class="eyebrow">REPLICATION MIRROR</span><h2 id="haupt-mirror-title">二次复制镜</h2></div></div><p>把 <i>P</i><sub>2</sub>(<i>f</i>) 的偶次项和 <i>f</i><sup>(2)</sup>(<i>q</i><sup>2</sup>) 对齐；奇次项则由原级数的偶序号系数给出。</p><div class="haupt-mirror-formula">\[P_2(f(q))=f^{(2)}(q^2)+2\sum_{n\ge1}a_{2n}q^n\]</div><div class="haupt-mirror-lines"><div><span>q²</span><p>\[a_1^2+2a_3=b_1+2a_4\]</p></div><div><span>q³</span><p>\[2a_4+2a_1a_2=2a_6\]</p></div><div><span>q⁴</span><p>\[2a_5+2a_1a_3+a_2^2=b_2+2a_8\]</p></div></div><small>这里 \(f^{(2)}=q^{-1}+b_1q+b_2q^2+\cdots\)。这些是二次复制关系的前三个具体系数，不是完整可复制性的全部条件。</small></section>
+        </div>
+        <section class="haupt-seed-lab" aria-labelledby="haupt-seed-title"><div class="haupt-section-head"><div><span class="eyebrow">SEED EXPERIMENT</span><h2 id="haupt-seed-title">四个输入，三次推导</h2></div><button type="button" id="haupt-reset" class="haupt-reset">恢复该类原始系数</button></div><p class="haupt-seed-intro">固定已知的二次 replicate，只改变 \(a_1,a_2,a_3,a_5\)。计算得到的 \(a_4,a_6,a_8\) 是复制公式的必要结果；随意改动输入后，不保证存在一条完全可复制函数。</p><div class="haupt-seed-layout"><div class="haupt-seed-form" id="haupt-seed-form"></div><div class="haupt-derived" id="haupt-derived" aria-live="polite"></div></div><div class="haupt-replicate-fixed" id="haupt-replicate-fixed"></div></section>
+        <div class="haupt-theorem"><div><span>THE FOUR-SEED CONDITION</span><h2>为什么偏偏是 1、2、3、5？</h2><p>二次复制先给出 \(a_4\)，随后给出 \(a_6\)、\(a_8\) 等；\(a_5\) 在这一步的递推中保持自由。Borcherds §9 证明：若整族幂类级数满足相容的复制关系，并给定每条级数的 \(a_1,a_2,a_3,a_5\)，其余系数由递推确定。ACMS 的计算也用这四个位置及已知的二次 replicate 继续生成系数。</p></div><div class="haupt-theorem-mark" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>5</span><i>→ ∞</i></div></div>
+        <div class="haupt-sources"><h2>依据与边界</h2><p><a href="https://math.berkeley.edu/~reb/papers/monster/monster.pdf" target="_blank" rel="noopener">Borcherds (1992)，§8–9</a> 给出 Thompson 级数的复制关系、式 (9.1) 及四个种子在整族幂类中的决定性；<a href="https://oeis.org/A007242/a007242_1.pdf" target="_blank" rel="noopener">Alexander–Cummins–McKay–Simons (1992)</a> 用已知 replicates 与四个种子做计算。这里的 1A、2A、2B 系数沿用本站魔群探索的数据；实验只验证展示的低阶恒等式，不把有限项核对当作 genus zero 的证明。</p><button type="button" data-go-tab="tree" data-go-node="ferenbaugh">在证明树中看候选函数侧 ↗</button></div>
+      </div></div>
+    </section>
+    <section class="tab-panel content-panel sources-panel" id="sources-panel" role="tabpanel" aria-labelledby="tab-sources" data-panel="sources" hidden>
+      <div class="tab-scroll"><div class="tab-content">
+        <div class="sources-block">
+          <div class="sources-intro">
+            <div><p class="eyebrow">06 / SOURCES & CONVENTIONS</p><h2>记号与文献</h2></div>
+            <p>符号集中列在这里；各构造步骤还标出对应文献与章节。</p>
+            <span class="sources-count">04 / 符号　　06 / 文献</span>
+          </div>
+          <div class="sources-layout">
+            <div class="notation-card">
+              <div class="notation-heading"><span>01 / NOTATION</span><h3>符号索引</h3><p>阅读证明链时反复出现的四个记号</p></div>
+              <dl>
+                <div><dt>\(V^\natural_k\)</dt><dd>共形权为 \(k\) 的月光模分次。</dd></div>
+                <div><dt>\(V_n\)</dt><dd>Borcherds 的“head”记号：\(V_n=V^\natural_{n+1}\)。</dd></div>
+                <div><dt>\(c(n)\)</dt><dd>规范化级数 \(J(q)\) 中 \(q^n\) 的系数。</dd></div>
+                <div><dt>\(\mathbb M,\mathfrak m\)</dt><dd>前者是有限魔群；后者是无限维魔群李代数。</dd></div>
+              </dl>
+            </div>
+            <div class="source-list" id="source-list"></div>
+          </div>
+        </div>
+      </div></div>
+    </section>
+  </main>
+</body>
+</html>

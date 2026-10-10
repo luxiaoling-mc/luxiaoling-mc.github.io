@@ -1,0 +1,31 @@
+.construction-trail{margin:54px 0 25px;padding:28px;border:1px solid #49686a;border-radius:14px;background:radial-gradient(circle at 100% 0,#35685d42,transparent 38%),linear-gradient(145deg,#162c35,#0e202a 70%);box-shadow:0 20px 50px #06111955;scroll-margin-top:24px}
+.construction-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,440px);align-items:end;gap:26px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid #456368}
+.construction-heading .eyebrow{display:block;margin:0 0 9px;color:#a7cfc0;font:10px var(--mono);letter-spacing:.12em}
+.construction-heading h2{margin:0;color:#f3ead7;font:normal clamp(25px,2.7vw,34px)/1.22 var(--serif)}
+.construction-heading p{margin:0;color:#acc5c0;font:12px/1.8 var(--sans)}
+.construction-layout{display:grid;grid-template-columns:minmax(330px,.85fr) minmax(0,1.15fr);gap:17px;align-items:start}
+.construction-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;min-width:0}
+.construction-step{position:relative;display:grid;grid-template-columns:26px minmax(0,1fr) 13px;align-items:center;gap:9px;min-width:0;min-height:61px;padding:10px 11px;text-align:left;color:#c2d4cd;background:#122a34;border:1px solid #3d5a60;border-radius:7px;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.construction-step:hover{background:#1e3b42;border-color:#83aaa0;transform:translateY(-2px)}
+.construction-step:focus-visible{outline:2px solid #ebc27a;outline-offset:2px}
+.construction-step[aria-pressed="true"]{color:#f3ead6;background:linear-gradient(115deg,#365554,#23413e);border-color:#d1ab72;box-shadow:inset 3px 0 #e2bc7c,0 7px 18px #06141a55}
+.construction-step span{align-self:start;margin-top:3px;color:#e5bd77;font:11px var(--mono)}
+.construction-step strong{font:600 12px/1.5 var(--sans)}
+.construction-step i{font-style:normal;color:#8fbab0;font-size:13px}
+.construction-detail{min-width:0;min-height:345px;padding:24px clamp(22px,2.7vw,35px);border:1px solid #62827d;border-radius:8px;background:linear-gradient(145deg,#233b42,#182d37 68%,#142731);box-shadow:0 12px 31px #06141c70}
+.construction-detail-index{display:flex;justify-content:space-between;gap:14px;color:#92c6ba;font:10px/1.5 var(--mono);letter-spacing:.06em}
+.construction-detail-index span:last-child{color:#e4bd79;white-space:nowrap}
+.construction-detail h3{margin:17px 0 12px;color:#f4e9d5;font:normal clamp(24px,2.4vw,31px)/1.25 var(--serif)}
+.construction-explanation{margin:0;color:#d0dfd6;font:13px/1.85 var(--sans)}
+.construction-formula{margin:20px 0;padding:17px 18px;border-left:3px solid #e4bd7a;border-radius:0 6px 6px 0;background:#0e202a;color:#f0dcaf;overflow-x:auto;scrollbar-width:thin;font-size:12px}
+.construction-formula>span{display:block;margin-bottom:8px;color:#dcc48e;font:10px var(--mono);letter-spacing:.08em}
+.construction-formula mjx-container[display="true"]{margin:9px 0!important;min-width:0}
+.construction-why{padding-top:15px;border-top:1px solid #53706d}
+.construction-why strong{color:#a9d6c8;font:11px var(--mono);letter-spacing:.08em}
+.construction-why p{margin:7px 0 0;color:#c5d8cf;font:12px/1.8 var(--sans)}
+.construction-citation{margin:17px 0 0;color:#92aea9;font:11px/1.7 var(--sans)}
+.sources-panel .sources-block{margin-top:0;padding-top:0;border-top:0}
+.sources-panel .sources-block::before{display:none}
+.sources-panel .sources-intro{padding-bottom:25px;border-bottom:1px solid #4d696d}
+@media(max-width:1050px){.construction-heading{grid-template-columns:1fr}.construction-layout{grid-template-columns:1fr}.construction-detail{min-height:0}.construction-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.construction-trail{margin:40px 0 20px;padding:19px 15px;border-radius:9px}.construction-heading{gap:10px;margin-bottom:17px;padding-bottom:15px}.construction-heading h2{font-size:25px}.construction-heading p{font-size:11px}.construction-steps{display:flex;gap:7px;margin:0 -15px;padding:0 15px 8px;overflow-x:auto;scrollbar-width:thin;scroll-snap-type:x proximity}.construction-step{flex:0 0 155px;min-height:58px;scroll-snap-align:start;grid-template-columns:21px minmax(0,1fr);padding:9px}.construction-step i{display:none}.construction-step strong{font-size:11px}.construction-detail{padding:20px 17px}.construction-detail-index{font-size:9px}.construction-detail-index span:first-child{max-width:52%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.construction-explanation{font-size:12px}.construction-formula{margin:17px 0;padding:12px;font-size:10px}}
